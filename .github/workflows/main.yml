@@ -18,6 +18,7 @@ jobs:
           # Copy the root HTML file (index.html)
           sudo cp -v ./index.html /var/www/medapp/
           sudo cp -v ./profile.html /var/www/medapp/
+          sudo cp -v ./manifest.json /var/www/medapp/
 
           # Copy the entire public folder (for favicon.ico and other assets)
           sudo cp -rv ./assets /var/www/medapp/
