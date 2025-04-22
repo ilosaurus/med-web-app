@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Medical App UI</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"> -->
   <style>
     body {
       background-color: #f4f5fa;
       color: #333;
       font-family: 'Segoe UI', sans-serif;
-      padding-bottom: 70px; /* For fixed footer space */
+      padding-bottom: 70px;
     }
     .top-section {
       background-color: #6754e2;
@@ -20,23 +23,35 @@
       border-bottom-left-radius: 1.5rem;
       border-bottom-right-radius: 1.5rem;
     }
+    .search-bar {
+      background-color: white;
+      border-radius: 0.75rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      flex-grow: 1;
+    }
     .card {
       background-color: #fff;
       color: #000;
       border-radius: 1rem;
+      height: 100%;
+      padding: 1rem;
+      text-align: center;
     }
     .section-title {
       font-weight: bold;
       margin-top: 1rem;
     }
-    .icon-box {
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    .icon-box i {
-      font-size: 1.8rem;
-      margin-bottom: 0.3rem;
-      display: block;
+    .icon-box img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+      filter: invert(21%) sepia(54%) saturate(1746%) hue-rotate(219deg) brightness(90%) contrast(101%);
     }
     .profile-pic {
       width: 40px;
@@ -49,7 +64,6 @@
       height: 50px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 0.5rem;
     }
     .bottom-nav {
       position: fixed;
@@ -78,98 +92,126 @@
 <body>
   <div class="top-section">
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-2">
+      <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
-          <small>Welcome</small>
-          <h6 class="mb-0">Dani Martinez</h6>
+          <small>07:00</small>
         </div>
-        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Profile" class="profile-pic">
+        <div>
+          <i class="bi bi-lock"></i>
+          <i class="bi bi-battery-full ms-2"></i>
+        </div>
       </div>
-      <input type="text" class="form-control" placeholder="Search doctor">
+      <div class="d-flex align-items-center mb-3">
+        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Profile" class="profile-pic me-2">
+        <div>
+          <div>Welcome</div>
+          <strong>Dani Martinez</strong>
+        </div>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search doctor">
+        <i class="bi bi-search"></i>
+      </div>
     </div>
   </div>
 
   <div class="container py-3">
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center mb-3">
       <div class="section-title">Categories</div>
-      <a href="#" class="text-decoration-none text-primary">Show All</a>
+      <a href="#" class="text-decoration-none text-dark fw-bold">Show All</a>
     </div>
-    <div class="row text-center g-2">
-      <div class="col-4">
-        <div class="card icon-box p-2">
-          <i class="bi bi-person-vcard"></i>Consultation
-        </div>
+    
+    <div class="row row-cols-3 g-3">
+      <div class="col">
+        <a href="#consultation" class="text-decoration-none text-dark">
+          <div class="card icon-box d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/images/category-consulting.svg" alt="Consultation">
+            <div>Consultation</div>
+          </div>
+        </a>
       </div>
-      <div class="col-4">
-        <div class="card icon-box p-2">
-          <i class="bi bi-emoji-smile"></i>Dentist
-        </div>
+      <div class="col">
+        <a href="#dentist" class="text-decoration-none text-dark">
+          <div class="card icon-box d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/images/category-dentist.svg" alt="Dentist">
+            <div>Dentist</div>
+          </div>
+        </a>
       </div>
-      <div class="col-4">
-        <div class="card icon-box p-2">
-          <i class="bi bi-heart-pulse"></i>Cardiologist
-        </div>
+      <div class="col">
+        <a href="#cardiologist" class="text-decoration-none text-dark">
+          <div class="card icon-box d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/images/category-cardiologist.svg" alt="Cardiologist">
+            <div>Cardiologist</div>
+          </div>
+        </a>
       </div>
-      <div class="col-4">
-        <div class="card icon-box p-2">
-          <i class="bi bi-hospital"></i>Hospital
-        </div>
+      <div class="col">
+        <a href="#hospital" class="text-decoration-none text-dark">
+          <div class="card icon-box d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/images/category-hospital.svg" alt="Hospital">
+            <div>Hospital</div>
+          </div>
+        </a>
       </div>
-      <div class="col-4">
-        <div class="card icon-box p-2">
-          <i class="bi bi-truck"></i>Emergency
-        </div>
+      <div class="col">
+        <a href="#emergency" class="text-decoration-none text-dark">
+          <div class="card icon-box d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/images/category-emergency.svg" alt="Emergency">
+            <div>Emergency</div>
+          </div>
+        </a>
       </div>
-      <div class="col-4">
-        <div class="card icon-box p-2">
-          <i class="bi bi-flask"></i>Laboratory
-        </div>
+      <div class="col">
+        <a href="#laboratory" class="text-decoration-none text-dark">
+          <div class="card icon-box d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/images/category-laboratory.svg" alt="Laboratory">
+            <div>Laboratory</div>
+          </div>
+        </a>
       </div>
     </div>
 
-    <div class="section-title">Top doctors</div>
+    <div class="section-title mt-4">Top doctors</div>
     <div class="row g-3">
       <div class="col-12">
-        <div class="card d-flex flex-row align-items-center p-2">
-          <img src="https://randomuser.me/api/portraits/women/50.jpg" class="doctor-img me-3" alt="Doctor">
-          <div>
-            <strong>dr. Olivia Wilson</strong>
-            <div>Consultant – Physiotherapy</div>
-            <small class="text-warning">⭐ 4.9 (57 Reviews)</small>
+        <a href="#dr-olivia" class="text-decoration-none text-dark">
+          <div class="card p-3 d-flex flex-row align-items-center gap-3">
+            <img src="https://randomuser.me/api/portraits/women/50.jpg" class="doctor-img" alt="Doctor">
+            <div class="text-start">
+              <strong>dr. Olivia Wilson</strong>
+              <div>Consultant - Physiotherapy</div>
+              <div class="d-flex align-items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png" alt="star" style="width: 16px; height: 16px; margin-right: 5px;">
+                <small class="text-muted">4.9 (37 Reviews)</small>
+              </div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col-12">
-        <div class="card d-flex flex-row align-items-center p-2">
-          <img src="https://randomuser.me/api/portraits/men/51.jpg" class="doctor-img me-3" alt="Doctor">
-          <div>
-            <strong>dr. Jonathan Patterson</strong>
-            <div>Consultant – Internal Medicine</div>
-            <small class="text-warning">⭐ 4.9 (57 Reviews)</small>
+        <a href="#dr-jonathan" class="text-decoration-none text-dark">
+          <div class="card p-3 d-flex flex-row align-items-center gap-3">
+            <img src="https://randomuser.me/api/portraits/men/51.jpg" class="doctor-img" alt="Doctor">
+            <div class="text-start">
+              <strong>dr. Jonathan Patterson</strong>
+              <div>Consultant - Internal Medicine</div>
+              <div class="d-flex align-items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png" alt="star" style="width: 16px; height: 16px; margin-right: 5px;">
+                <small class="text-muted">4.9 (37 Reviews)</small>
+              </div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Fixed Bottom Navigation -->
   <div class="bottom-nav">
-    <a href="#">
-      <i class="bi bi-house-door-fill"></i>
-      <span>Home</span>
-    </a>
-    <a href="#">
-      <i class="bi bi-person-lines-fill"></i>
-      <span>Doctors</span>
-    </a>
-    <a href="#">
-      <i class="bi bi-calendar-event"></i>
-      <span>Appointment</span>
-    </a>
-    <a href="#">
-      <i class="bi bi-person-fill"></i>
-      <span>Profile</span>
-    </a>
+    <a href="#"><i class="bi bi-house-door-fill"></i><span>Home</span></a>
+    <a href="#"><i class="bi bi-person-lines-fill"></i><span>Doctors</span></a>
+    <a href="#"><i class="bi bi-calendar-event"></i><span>Appointment</span></a>
+    <a href="#"><i class="bi bi-person-fill"></i><span>Profile</span></a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
