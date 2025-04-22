@@ -8,81 +8,104 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(to bottom right, #e9ebff, #ffffff);
+      background-color: #f9fbff;
       font-family: 'Segoe UI', sans-serif;
-      padding-bottom: 80px;
+      padding-bottom: 90px;
     }
-    .top-section {
-      background-color: #6754e2;
-      color: white;
-      padding: 2rem 1rem 2.5rem;
-      border-bottom-left-radius: 1.5rem;
-      border-bottom-right-radius: 1.5rem;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    .header-section {
+      background: linear-gradient(135deg, #ffffff, #eef1ff);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid #ddd;
     }
-    .profile-pic {
-      width: 90px;
-      height: 90px;
+    .user-summary {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .user-summary img {
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 0.75rem;
-      border: 3px solid #fff;
+    }
+    .user-summary div {
+      flex-grow: 1;
+    }
+    .user-summary h6 {
+      margin: 0;
+      font-weight: 700;
+    }
+    .badge-custom {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      margin-right: 0.3rem;
+      border-radius: 999px;
     }
     .section-title {
       font-weight: bold;
-      font-size: 1.3rem;
-      margin: 2rem 0 1rem;
-      color: #333;
+      font-size: 1.2rem;
+      margin: 1.75rem 0 1rem;
     }
-    .info-box {
+    .info-card {
       background-color: #fff;
-      border-radius: 1.25rem;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
     }
-    .info-item {
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      text-align: center;
+    }
+    .info-grid div strong {
+      display: block;
+      font-size: 1.25rem;
+    }
+    .info-grid div small {
+      color: #666;
+    }
+    .list-item-box {
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+    }
+    .info-list {
+      padding-left: 1.25rem;
+      margin-bottom: 0;
+    }
+    .status-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .info-item:last-child {
-      border-bottom: none;
-    }
-    .info-label {
-      font-weight: 600;
-      color: #555;
-      font-size: 1rem;
-    }
-    .info-value {
-      font-weight: 600;
-      color: #111;
-      font-size: 1rem;
-    }
-    .info-list {
-      list-style: disc;
-      padding-left: 1.25rem;
-      margin: 0;
-      color: #333;
-    }
-    .progress-bar-container {
-      background-color: #e9ecef;
-      height: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-top: 6px;
-      width: 160px;
-    }
-    .progress-bar-fill {
-      height: 10px;
-      background-color: #6754e2;
-    }
-    .mood-icon {
-      font-size: 3rem;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      background-color: #fff;
       margin-bottom: 0.75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .status-title {
+      font-weight: 600;
+    }
+    .status-value {
+      color: #666;
+    }
+    .health-icons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .health-icons div {
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    .health-icons img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
     }
     .bottom-nav {
       position: fixed;
@@ -109,85 +132,143 @@
       display: block;
       margin-bottom: 2px;
     }
+
+    .btn-link {
+      text-decoration: none;
+      font-weight: bold;
+      color: #6754e2;
+      display: block;
+      text-align: left;
+      margin-top: 0.8rem;
+      font-size: 1rem;
+    }
+
+    /* New Card Styles */
+    .card-custom {
+      background-color: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      padding-right: 0.2rem;
+      padding-left: 0.2rem;
+
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-custom:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      color: #6754e2;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-title {
+      font-weight: bold;
+      font-size: 0.8rem;
+      color: #333;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-value {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 <body>
-  <div class="top-section">
-    <img src="https://raw.githubusercontent.com/ilosaurus/med-web-app/refs/heads/main/assets/images/profil-intan.jpg" alt="Profile" class="profile-pic">
-    <h5 class="mb-0">Marwah Intan Tandipayuk</h5>
-    <small>Patient Profile & Health Monitoring</small>
+  
+  <div class="header-section">
+    <div class="container d-flex justify-content-between align-items-center mb-3">
+      <div class="fw-semibold">Rekam Medis</div>
+      <div class="text-primary">Ubah Profil <i class="bi bi-chevron-down"></i></div>
+    </div>
+    <div class="container user-summary">
+      <img src="https://raw.githubusercontent.com/ilosaurus/med-web-app/refs/heads/main/assets/images/profil-intan.jpg" alt="Profile">
+      <div class="container py-3">
+        <h6>Marwah Intan Tandipayuk</h6>
+        <div class="text-muted">Perempuan, 20 Tahun<br>Kendari</div>
+        <div class="mt-2">
+          <!-- <span class="badge bg-light text-dark badge-custom">DIRI SENDIRI</span> -->
+          <span class="badge bg-info text-dark badge-custom">ASURANSI</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="container py-4">
-    <div class="section-title">Data Dasar</div>
-    <div class="info-box">
-      <div class="info-item"><div class="info-label">Nama</div><div class="info-value">Marwah Intan Tandipayuk</div></div>
-      <div class="info-item"><div class="info-label">Usia</div><div class="info-value">20 Tahun</div></div>
-      <div class="info-item"><div class="info-label">Tinggi</div><div class="info-value">155 cm</div></div>
-      <div class="info-item"><div class="info-label">Berat</div><div class="info-value">45 kg</div></div>
-      <div class="info-item"><div class="info-label">Jenis Kelamin</div><div class="info-value">Perempuan</div></div>
+  <div class="container py-3">
+    <div class="info-card info-grid">
+      <div><strong>155 cm</strong><small>Tinggi Badan</small></div>
+      <div><strong>45 kg</strong><small>Berat Badan</small></div>
+      <div><strong>18.7</strong><small>BMI</small></div>
     </div>
 
-    <div class="section-title">Riwayat Medis</div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li>Asma sejak kecil</li>
-        <li>Gastritis (2019)</li>
-        <li>Infeksi Saluran Kemih (2022)</li>
-      </ul>
-    </div>
-
-    <div class="section-title">Alergi</div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li>Penicillin</li>
-        <li>Seafood</li>
-        <li>Debu</li>
-      </ul>
-    </div>
-
-    <div class="section-title">Obat yang Dikonsumsi</div>
-    <div class="info-box">
-      <div class="info-item"><div class="info-label">Daftar Obat</div><div class="info-value">Ventolin Inhaler (setiap malam)</div></div>
-    </div>
-
-    <div class="section-title">Pemantauan Kesehatan</div>
-    <div class="info-box">
-      <div class="info-item"><div class="info-label">Tekanan Darah</div><div class="info-value">120/80 mmHg</div></div>
-      <div class="info-item"><div class="info-label">Gula Darah</div><div class="info-value">98 mg/dL</div></div>
-      <div class="info-item"><div class="info-label">Detak Jantung</div><div class="info-value">72 bpm</div></div>
-    </div>
-
-    <div class="section-title">Mood Tracker</div>
-    <div class="info-box text-center">
-      <div class="mood-icon">😊</div>
-      <div class="info-label">Mood Hari Ini:</div>
-      <div class="info-value">Bahagia</div>
-    </div>
-
-    <div class="section-title">Aktivitas Fisik</div>
-    <div class="info-box">
-      <div class="info-item">
-        <div>
-          <div class="info-label">Langkah</div>
-          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 75%"></div></div>
-        </div>
-        <div class="info-value">7.542</div>
+    <div class="info-card">
+      <div class="status-title mb-1">Riwayat Medis</div>
+      <div class="info-box">
+        <ul class="info-list">
+          <li>Asma sejak kecil</li>
+          <li>Demam tifoid</li>
+        </ul>
       </div>
-      <div class="info-item">
-        <div>
-          <div class="info-label">Olahraga</div>
-          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 60%"></div></div>
+      <a href="#" class="btn-link">Lihat Detail</a>
+    </div>
+
+    <div class="info-card">
+      <div class="status-title mb-1">Alergi Makanan <span class="text-success ms-2">●</span></div>
+      <div class="status-value">Tidak ada alergi makanan yang diketahui</div>
+    </div>
+
+    <div class="info-card">
+      <div class="status-title mb-1">Alergi Obat <span class="text-success ms-2">●</span></div>
+      <div class="status-value">Tidak ada alergi obat yang diketahui</div>
+    </div>
+
+    <div class="section-title">Health Tracking</div>
+    <!-- Blood Pressure Card -->
+    <div class="row row-cols-3 g-4">
+      <div class="col">
+        <div class="card-custom">
+          <div class="card-icon">
+            <i class="bi bi-heart"></i>
+          </div>
+          <div class="card-title">Blood<br>Pressure</div>
+          <div class="card-value">120/80 mmHg</div>
         </div>
-        <div class="info-value">30 menit</div>
       </div>
-      <div class="info-item">
-        <div>
-          <div class="info-label">Tidur</div>
-          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 80%"></div></div>
+      <!-- Sugar Level Card -->
+      <div class="col">
+        <div class="card-custom">
+          <div class="card-icon">
+            <i class="bi bi-droplet"></i>
+          </div>
+          <div class="card-title">Sugar<br>Level</div>
+          <div class="card-value">98 mg/dL</div>
         </div>
-        <div class="info-value">6 jam 45 menit</div>
       </div>
+      <!-- Heart Rate Card -->
+      <div class="col">
+        <div class="card-custom">
+          <div class="card-icon">
+            <i class="bi bi-heart-pulse"></i>
+          </div>
+          <div class="card-title">Heart<br>Rate</div>
+          <div class="card-value">72 bpm</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Kondisi Kesehatan Pasien</div>
+    <div class="health-icons">
+      <div><img src="https://img.icons8.com/ios/50/iphone.png"/><div>Gadget</div></div>
+      <div><img src="https://img.icons8.com/ios/50/patient-oxygen-mask.png"/><div>ISPA</div></div>
+      <div><img src="https://img.icons8.com/ios/50/lungs.png"/><div>Paru</div></div>
     </div>
   </div>
 
@@ -195,7 +276,7 @@
     <a href="#"><i class="bi bi-house-door-fill"></i><span>Home</span></a>
     <a href="#"><i class="bi bi-person-lines-fill"></i><span>Doctors</span></a>
     <a href="#"><i class="bi bi-calendar-event"></i><span>Appointment</span></a>
-    <a href="#"><i class="bi bi-person-fill"></i><span>Profile</span></a>
+    <a href="profile.html"><i class="bi bi-person-fill"></i><span>Profile</span></a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
