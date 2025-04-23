@@ -25,6 +25,7 @@ const urlsToCache = [
   "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-512x512.png",
   "https://sehatin.rizcasaur.us/assets/images/iphone.png",
   "https://sehatin.rizcasaur.us/assets/images/patient-oxygen-mask.png",
+  "https://sehatin.rizcasaur.us/assets/images/Plain_Yellow_Star.png",
   "https://sehatin.rizcasaur.us/assets/images/lungs.png",
   "https://sehatin.rizcasaur.us/assets/images/favicon.ico",
   "https://sehatin.rizcasaur.us/assets/images/favicon.svg",
