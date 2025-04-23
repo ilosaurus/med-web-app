@@ -1,3 +1,5 @@
+// service-worker.js (fixed version with debug logs)
+
 const CACHE_NAME = "SEHATIN-CACHE";
 const urlsToCache = [
   "https://sehatin.rizcasaur.us/",
@@ -16,46 +18,61 @@ const urlsToCache = [
 
 // Install the service worker and cache the assets
 self.addEventListener("install", (event) => {
-  console.log("Service Worker Installed");
+  console.log("[SW] Installed");
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("Caching files...");
+      console.log("[SW] Caching files...");
       return cache.addAll(urlsToCache);
-    })
+    }).catch((error) => console.error("[SW] Cache addAll error:", error))
   );
 });
 
-// Intercept fetch requests and serve cached content if available
+// Intercept fetch requests
 self.addEventListener("fetch", (event) => {
-  console.log(`Fetching: ${event.request.url}`);
+  console.log(`[SW] Fetching: ${event.request.url}`);
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request).then((networkResponse) => {
-        // Clone the response so it can be cached and used
-        const networkResponseClone = networkResponse.clone();
+      if (cachedResponse) {
+        console.log(`[SW] Serving from cache: ${event.request.url}`);
+        return cachedResponse;
+      }
 
-        // Optionally, cache the new response for future use
-        if (event.request.url.startsWith('https://sehatin.rizcasaur.us/')) {
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, networkResponseClone);
-          });
-        }
+      return fetch(event.request, { cache: "no-store" })
+        .then((networkResponse) => {
+          console.log(`[SW] Fetched from network: ${event.request.url}`);
 
-        return networkResponse;
-      });
+          // Clone the response to use it in cache
+          const responseClone = networkResponse.clone();
+
+          if (event.request.url.startsWith("https://sehatin.rizcasaur.us/")) {
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseClone);
+              console.log(`[SW] Cached: ${event.request.url}`);
+            });
+          }
+
+          return networkResponse;
+        })
+        .catch((error) => {
+          console.error(`[SW] Fetch failed: ${event.request.url}`, error);
+          throw error;
+        });
     })
   );
 });
 
-// Clean up old caches and activate the service worker
+// Activate and clean old caches
 self.addEventListener("activate", (event) => {
-  const cacheWhitelist = [CACHE_NAME]; // Array of cache versions to retain
+  console.log("[SW] Activate");
+  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName); // Delete old caches
+            console.log(`[SW] Deleting old cache: ${cacheName}`);
+            return caches.delete(cacheName);
           }
         })
       );
