@@ -1,12 +1,12 @@
 const CACHE_NAME = "SEHATIN-CACHE";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/assets/css/bootstrap.min.css",
-  "/assets/js/bootstrap.bundle.min.js",
-  "/assets/images/profil-intan.jpg", 
-  "/assets/images/web-app-manifest-192x192.png", 
-  "/assets/images/web-app-manifest-512x512.png"
+  "https://sehatin.rizcasaur.us/",
+  "https://sehatin.rizcasaur.us/index.html",
+  "https://sehatin.rizcasaur.us/assets/css/bootstrap.min.css",
+  "https://sehatin.rizcasaur.us/assets/js/bootstrap.bundle.min.js",
+  "https://sehatin.rizcasaur.us/assets/images/profil-intan.jpg", 
+  "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-192x192.png", 
+  "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-512x512.png"
 ];
 
 // Install the service worker and cache the assets
