@@ -28,12 +28,16 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       return cachedResponse || fetch(event.request).then((networkResponse) => {
+        // Clone the response so it can be cached and used
+        const networkResponseClone = networkResponse.clone();
+
         // Optionally, cache the new response for future use
         if (event.request.url.startsWith('https://sehatin.rizcasaur.us/')) {
           caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, networkResponse);
+            cache.put(event.request, networkResponseClone);
           });
         }
+
         return networkResponse;
       });
     })
