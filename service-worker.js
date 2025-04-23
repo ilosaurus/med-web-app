@@ -1,5 +1,3 @@
-// service-worker.js (updated with full list and robust error handling)
-
 const CACHE_NAME = "SEHATIN-CACHE";
 const urlsToCache = [
   "https://sehatin.rizcasaur.us/",
@@ -33,10 +31,10 @@ const urlsToCache = [
   "https://sehatin.rizcasaur.us/manifest.json"
 ];
 
-const putInCache = async (request, response) => {
+const putInCache = async (request, clonedResponse) => {
   const cache = await caches.open(CACHE_NAME);
   try {
-    await cache.put(request, response.clone());
+    await cache.put(request, clonedResponse);
   } catch (err) {
     console.error("[SW] Failed to cache:", request.url, err);
   }
@@ -49,15 +47,16 @@ const cacheFirst = async ({ request, fallbackUrl }) => {
   }
 
   try {
-    const networkResponse = await fetch(request);
+    const response = await fetch(request);
     if (
-      networkResponse &&
-      networkResponse.status === 200 &&
-      networkResponse.type === "basic"
+      response &&
+      response.status === 200 &&
+      response.type === "basic"
     ) {
-      putInCache(request, networkResponse.clone());
+      const responseClone = response.clone(); // clone once
+      putInCache(request, responseClone); // use the clone
     }
-    return networkResponse;
+    return response;
   } catch (err) {
     console.warn("[SW] Network failed for:", request.url);
     const fallback = await caches.match(fallbackUrl);
@@ -80,7 +79,7 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     cacheFirst({
       request: event.request,
-      fallbackUrl: "https://sehatin.rizcasaur.us/index.html",
+      fallbackUrl: "https://sehatin.rizcasaur.us/fallback.html",
     })
   );
 });
