@@ -274,8 +274,38 @@
     <a href="profile.html"><i class="bi bi-person-fill"></i><span>Profile</span></a>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <div id="install-container" class="text-center mt-4" style="display: none;">
+    <button id="install-button" class="btn btn-primary">INSTALL SEHATIN APPS</button>
+  </div>
+  
   <script>
+    let deferredPrompt;
+    const installContainer = document.getElementById('install-container');
+    const installButton = document.getElementById('install-button');
+  
+    // 1. Listen for beforeinstallprompt
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installContainer.style.display = 'block';
+    });
+  
+    // 2. Handle Install button click
+    installButton?.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+          installContainer.style.display = 'none';
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+      }
+    });
+  
+    // 3. Register Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js')
@@ -288,5 +318,6 @@
       });
     }
   </script>
+
 </body>
 </html>
