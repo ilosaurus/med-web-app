@@ -5,7 +5,10 @@ const urlsToCache = [
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
-  "https://sehatin.rizcasaur.us/assets/images/profil-intan.jpg", 
+  "https://sehatin.rizcasaur.us/assets/images/profil-intan.jpg",
+  "https://sehatin.rizcasaur.us/assets/images/profil-jeshica.jpg",
+  "https://sehatin.rizcasaur.us/assets/images/profil-dian.jpg",
+  "https://sehatin.rizcasaur.us/assets/images/profil-alfia.jpg",
   "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-192x192.png", 
   "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-512x512.png",
   "https://sehatin.rizcasaur.us/manifest.json"
