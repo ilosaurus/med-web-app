@@ -1,4 +1,4 @@
-// service-worker.js (fixed version with debug logs)
+// service-worker.js (fully fixed version with better error handling and extended cache)
 
 const CACHE_NAME = "SEHATIN-CACHE";
 const urlsToCache = [
@@ -11,8 +11,11 @@ const urlsToCache = [
   "https://sehatin.rizcasaur.us/assets/images/profil-jeshica.jpg",
   "https://sehatin.rizcasaur.us/assets/images/profil-dian.jpg",
   "https://sehatin.rizcasaur.us/assets/images/profil-alfia.jpg",
-  "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-192x192.png", 
+  "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-192x192.png",
   "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-512x512.png",
+  "https://sehatin.rizcasaur.us/assets/images/favicon.ico",
+  "https://sehatin.rizcasaur.us/assets/images/favicon.svg",
+  "https://sehatin.rizcasaur.us/assets/images/favicon-96x96.png",
   "https://sehatin.rizcasaur.us/manifest.json"
 ];
 
@@ -40,9 +43,11 @@ self.addEventListener("fetch", (event) => {
 
       return fetch(event.request, { cache: "no-store" })
         .then((networkResponse) => {
-          console.log(`[SW] Fetched from network: ${event.request.url}`);
+          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type === "opaque") {
+            console.warn(`[SW] Skipping cache due to bad response: ${event.request.url}`);
+            return networkResponse;
+          }
 
-          // Clone the response to use it in cache
           const responseClone = networkResponse.clone();
 
           if (event.request.url.startsWith("https://sehatin.rizcasaur.us/")) {
@@ -56,7 +61,11 @@ self.addEventListener("fetch", (event) => {
         })
         .catch((error) => {
           console.error(`[SW] Fetch failed: ${event.request.url}`, error);
-          throw error;
+          return new Response("Service is unavailable while offline", {
+            status: 503,
+            statusText: "Offline",
+            headers: new Headers({ "Content-Type": "text/plain" })
+          });
         });
     })
   );
