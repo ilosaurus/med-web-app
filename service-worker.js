@@ -2,8 +2,9 @@ const CACHE_NAME = "SEHATIN-CACHE";
 const urlsToCache = [
   "https://sehatin.rizcasaur.us/",
   "https://sehatin.rizcasaur.us/index.html",
-  "https://sehatin.rizcasaur.us/assets/css/bootstrap.min.css",
-  "https://sehatin.rizcasaur.us/assets/js/bootstrap.bundle.min.js",
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+  "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css",
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
   "https://sehatin.rizcasaur.us/assets/images/profil-intan.jpg", 
   "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-192x192.png", 
   "https://sehatin.rizcasaur.us/assets/images/web-app-manifest-512x512.png"
