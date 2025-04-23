@@ -1,6 +1,6 @@
 {
-    "name": "Medical App",
-    "short_name": "MedApp",
+    "name": "SEHATIN",
+    "short_name": "SEHATIN",
     "description": "A medical profile and health tracking app",
     "start_url": "/index.html",
     "display": "standalone",

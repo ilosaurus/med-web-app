@@ -1,4 +1,4 @@
-const CACHE_NAME = "medical-app-cache-v1";
+const CACHE_NAME = "SEHATIN-CACHE";
 const urlsToCache = [
   "/",
   "/index.html",
