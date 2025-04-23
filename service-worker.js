@@ -1,9 +1,11 @@
-// service-worker.js (fully fixed version with better error handling and extended cache)
+// service-worker.js (simplified and robust version using async/await pattern)
 
 const CACHE_NAME = "SEHATIN-CACHE";
 const urlsToCache = [
   "https://sehatin.rizcasaur.us/",
   "https://sehatin.rizcasaur.us/index.html",
+  "https://sehatin.rizcasaur.us/profile.html",
+  "https://sehatin.rizcasaur.us/monitoring.html",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
@@ -19,68 +21,52 @@ const urlsToCache = [
   "https://sehatin.rizcasaur.us/manifest.json"
 ];
 
-// Install the service worker and cache the assets
+const putInCache = async (request, response) => {
+  const cache = await caches.open(CACHE_NAME);
+  await cache.put(request, response);
+};
+
+const cacheFirst = async ({ request, fallbackUrl }) => {
+  const responseFromCache = await caches.match(request);
+  if (responseFromCache) {
+    return responseFromCache;
+  }
+
+  try {
+    const responseFromNetwork = await fetch(request);
+    putInCache(request, responseFromNetwork.clone());
+    return responseFromNetwork;
+  } catch (error) {
+    console.warn("[SW] Network request failed for:", request.url);
+    const fallbackResponse = await caches.match(fallbackUrl);
+    return fallbackResponse || new Response("Offline and no fallback found", {
+      status: 408,
+      headers: { "Content-Type": "text/plain" },
+    });
+  }
+};
+
 self.addEventListener("install", (event) => {
-  console.log("[SW] Installed");
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("[SW] Caching files...");
-      return cache.addAll(urlsToCache);
-    }).catch((error) => console.error("[SW] Cache addAll error:", error))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
   );
 });
 
-// Intercept fetch requests
 self.addEventListener("fetch", (event) => {
-  console.log(`[SW] Fetching: ${event.request.url}`);
-
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        console.log(`[SW] Serving from cache: ${event.request.url}`);
-        return cachedResponse;
-      }
-
-      return fetch(event.request, { cache: "no-store" })
-        .then((networkResponse) => {
-          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type === "opaque") {
-            console.warn(`[SW] Skipping cache due to bad response: ${event.request.url}`);
-            return networkResponse;
-          }
-
-          const responseClone = networkResponse.clone();
-
-          if (event.request.url.startsWith("https://sehatin.rizcasaur.us/")) {
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, responseClone);
-              console.log(`[SW] Cached: ${event.request.url}`);
-            });
-          }
-
-          return networkResponse;
-        })
-        .catch((error) => {
-          console.error(`[SW] Fetch failed: ${event.request.url}`, error);
-          return new Response("Service is unavailable while offline", {
-            status: 503,
-            statusText: "Offline",
-            headers: new Headers({ "Content-Type": "text/plain" })
-          });
-        });
+    cacheFirst({
+      request: event.request,
+      fallbackUrl: "https://sehatin.rizcasaur.us/index.html",
     })
   );
 });
 
-// Activate and clean old caches
 self.addEventListener("activate", (event) => {
-  console.log("[SW] Activate");
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            console.log(`[SW] Deleting old cache: ${cacheName}`);
+          if (cacheName !== CACHE_NAME) {
             return caches.delete(cacheName);
           }
         })
