@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEHATIN - Medical Log</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    body {
+      background-color: #f9fbff;
+      font-family: 'Segoe UI', sans-serif;
+      padding-bottom: 90px;
+    }
+    .header-section {
+      background: linear-gradient(135deg, #ffffff, #eef1ff);
+      padding: 1rem 0.2rem ;
+      border-bottom: 1px solid #ddd;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 10px;
+      width: 2px;
+      background: #ccc;
+    }
+    .event {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .event-icon {
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      background: white;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+    }
+    .event-content {
+      margin-left: 30px;
+    }
+    .card-med {
+      background-color: #fff;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
+    }
+    .rx-badge {
+      background-color: #fce96b;
+      color: #000;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .doctor-card {
+      display: grid;
+      align-items: center;
+      gap: 1rem;
+    }
+    .doctor-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .top-nav {
+      padding: 0.75rem 0.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-section">
+    <div class="d-flex justify-content-between align-items-center top-nav">
+      <a href="profile.html" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left"></i></a>
+      <h3 class="mb-0">Catatan Medis Digital</h3>
+      <select class="d-flex form-select w-auto" onchange="filterEvents(this.value)">
+        <option value="">Semua</option>
+        <option value="03">Maret 2025</option>
+        <option value="02">Februari 2025</option>
+      </select>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="container py-3 timeline" id="eventTimeline">
+    <!-- Maret 2025 -->
+    <div class="event" data-month="03">
+        <div class="event-icon bg-warning"></div>
+        <div class="event-content">
+            <small class="text-muted">Maret 2025</small>
+            <h4 class="mt-4">Telemedical - Selasa, 25/03/2025</h4>
+            <div class="card-med doctor-card">
+            <img src="https://sehatin.rizcasaur.us/assets/images/profil-jeshica.jpg" alt="dr. Jeshica Alga Borean">
+            <div>
+                <strong>dr. Jeshica Alga Borean</strong>
+                <p class="mb-1">Diagnosis:<br>Gastritis, pneumonia ringan, dan dehidrasi akut akibat infeksi saluran cerna.</p>
+                <span class="badge bg-light text-primary"><i class="bi bi-prescription"></i> DIBERIKAN RESEP OBAT</span>
+                <hr class="hr" />
+                <div class="mt-2">
+                    <ul class="list-unstyled">
+                      <li>Dumin 500 mg 10 Kaplet <span class="rx-badge">OBAT RESEP</span></li>
+                      <li>Vometa FT 10 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
+                      <li>Oralit Sachet Phapros <span class="rx-badge">OBAT RESEP</span></li>
+                      <li>Ranitidine 150 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
+                    </ul>
+                </div>
+                <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#resepModal">Lihat Detail</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+    <!-- Februari 2025 -->
+    <div class="event" data-month="02">
+        <div class="event-icon bg-warning"></div>
+        <div class="event-content">
+            <small class="text-muted">Februari 2025</small>
+            <h4 class="mt-4">Telemedical - Selasa, 25/02/2025</h4>
+            <div class="card-med doctor-card">
+            <img src="https://sehatin.rizcasaur.us/assets/images/profil-helen.jpg" alt="apt. Helen Matasik">
+            <div>
+                <strong>apt. Helen Matasik</strong>
+                <p class="mb-1">Diagnosis:<br>Dispepsia, vertigo, dan GERD</p>
+                <span class="badge bg-light text-primary"><i class="bi bi-prescription"></i> DIBERIKAN RESEP OBAT</span>
+                <hr class="hr" />
+                <div class="mt-2">
+                <ul class="list-unstyled">
+                    <li>Becom Zet 10 Kaplet <span class="rx-badge">OBAT RESEP</span></li>
+                    <li>Degirol 0.25 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
+                    <li>Alloris 10 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
+                    <li>Panadol 500 mg 10 Kaplet <span class="rx-badge">OBAT RESEP</span></li>
+                </ul>
+                </div>
+                <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#resepModal">Lihat Detail</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="resepModal" tabindex="-1" aria-labelledby="resepModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="resepModalLabel">Resep Obat</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-unstyled">
+            <li>Dumin 500 mg 10 Kaplet <span class="rx-badge">OBAT RESEP</span></li>
+            <li>Vometa FT 10 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
+            <li>Oralit Sachet Phapros <span class="rx-badge">OBAT RESEP</span></li>
+            <li>Ranitidine 150 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="printPrescription()">Cetak Resep</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function filterEvents(month) {
+      document.querySelectorAll('.event').forEach(event => {
+        event.style.display = month === '' || event.dataset.month === month ? 'block' : 'none';
+      });
+    }
+
+    function printPrescription() {
+      const modalBody = document.querySelector('#resepModal .modal-body');
+      const printWindow = window.open('', '', 'width=600,height=400');
+      printWindow.document.write(`
+        <html>
+          <head><title>Cetak Resep</title></head>
+          <body>
+            <h2>Resep Obat</h2>
+            ${modalBody.innerHTML}
+          </body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.print();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
