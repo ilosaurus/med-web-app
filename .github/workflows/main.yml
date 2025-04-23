@@ -21,6 +21,7 @@ jobs:
           sudo cp -v ./manifest.json /var/www/medapp/
           sudo cp -v ./service-worker.js /var/www/medapp/
           sudo cp -v ./monitoring.html /var/www/medapp/
+          sudo cp -v ./fallback.html /var/www/medapp/
 
           # Copy the entire public folder (for favicon.ico and other assets)
           sudo cp -rv ./assets /var/www/medapp/

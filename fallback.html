@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEHATIN - FALLBACK</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SEHATIN" />
+    <link rel="manifest" href="https://sehatin.rizcasaur.us/manifest.json">
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f5fa;
+      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .offline-box {
+      max-width: 400px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+    }
+    .offline-box img {
+      width: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .offline-box h1 {
+      font-size: 1.6rem;
+      color: #6754e2;
+    }
+    .offline-box p {
+      margin-top: 0.75rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-box">
+    <img src="https://img.icons8.com/ios/100/no-connection.png" alt="Offline" />
+    <h1>You're Offline</h1>
+    <p>Sorry, you are currently not connected to the internet. Please check your connection and try again.</p>
+    <p><strong>SEHATIN</strong> is here when you come back online 🚀</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch((error) => {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
