@@ -285,6 +285,7 @@
   
     // 1. Listen for beforeinstallprompt
     window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('[INSTALL PROMPT] Event triggered');
       e.preventDefault();
       deferredPrompt = e;
       installContainer.style.display = 'block';

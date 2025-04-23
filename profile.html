@@ -304,6 +304,7 @@
   
     // 1. Listen for beforeinstallprompt
     window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('[INSTALL PROMPT] Event triggered');
       e.preventDefault();
       deferredPrompt = e;
       installContainer.style.display = 'block';
@@ -323,6 +324,12 @@
         deferredPrompt = null;
       }
     });
+
+    window.addEventListener('appinstalled', () => {
+      console.log('PWA was installed');
+      installContainer.style.display = 'none';
+    });
+
   
     // 3. Register Service Worker
     if ('serviceWorker' in navigator) {
