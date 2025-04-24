@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telemedicine - SEHATIN</title>
+  <link rel="icon" href="https://sehatin.rizcasaur.us/assets/images/favicon-96x96.png" sizes="96x96">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f9fbff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .doctor-card {
+      background-color: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      margin-bottom: 1.5rem;
+      padding: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+    .doctor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+    .doctor-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .doctor-info {
+      display: flex;
+      gap: 1rem;
+    }
+    .doctor-info h5 {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+    }
+    .doctor-info p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .btn-appointment {
+      background-color: #6754e2;
+      color: #fff;
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .doctor-status {
+      font-size: 0.9rem;
+      color: red;
+    }
+    .info-text {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    .hospital-info {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .search-box {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: #f9fbff;
+      /* background: transparent; */
+      z-index: 100;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #ddd;
+      /* margin-bottom: 0.2rem; */
+      box-sizing: border-box;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ddd;
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #6754e2;
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 999;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    .bottom-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .bottom-nav a i {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .doctor-card .schedule-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .doctor-card .schedule-info .status {
+      color: red;
+      font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="search-box">
+        <div class="container">
+            <h2 class="mb-4 section-title">TELEKONSULTASI</h2>
+            <input type="text" class="form-control" placeholder="Cari dokter, spesialisasi, lab test">
+        </div>
+
+    </div>
+  <div class="container py-4">
+    <!-- Search Box and Title -->
+
+
+    <!-- Doctor Cards -->
+    <div class="doctor-card">
+      <div class="doctor-info">
+        <img src="https://sehatin.rizcasaur.us/assets/images/profil-jeshica.jpg" alt="Dr. Jeshica">
+        <div>
+          <h5>dr. Jeshica Alga Borean</h5>
+          <p>Consultant - Internal Medicine</p>
+          <p class="doctor-status">Paling Dicari - Slot dokter ini segera habis.</p>
+        </div>
+      </div>
+      <div class="hospital-info">
+        <p><strong>Rumah Sakit:</strong> Rumah Sakit Umum Firdaus, Cilincing, Jakarta</p>
+        <p><strong>Jarak:</strong> 0.62 km dari Anda</p>
+      </div>
+      <div class="schedule-info">
+        <p>Jadwal: Besok, 17.00</p>
+        <button class="btn-appointment">Buat Janji</button>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="info-text">Biaya Konsultasi: Rp180.000</span>
+        <span class="info-text">Ulasan Dokter: 100% (2 ulasan)</span>
+      </div>
+    </div>
+
+    <div class="doctor-card">
+      <div class="doctor-info">
+        <img src="https://sehatin.rizcasaur.us/assets/images/profil-alfia.jpg" alt="Dr. Alfia">
+        <div>
+          <h5>dr. Alfia Rauf</h5>
+          <p>Consultant - Cardiology</p>
+          <p class="doctor-status">Paling Dicari - Slot dokter ini segera habis.</p>
+        </div>
+      </div>
+      <div class="hospital-info">
+        <p><strong>Rumah Sakit:</strong> Rumah Sakit Umum Firdaus, Cilincing, Jakarta</p>
+        <p><strong>Jarak:</strong> 0.62 km dari Anda</p>
+      </div>
+      <div class="schedule-info">
+        <p>Jadwal: Besok, 18.00</p>
+        <button class="btn-appointment">Buat Janji</button>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="info-text">Biaya Konsultasi: Rp200.000</span>
+        <span class="info-text">Ulasan Dokter: 95% (3 ulasan)</span>
+      </div>
+    </div>
+
+    <div class="doctor-card">
+      <div class="doctor-info">
+        <img src="https://sehatin.rizcasaur.us/assets/images/profil-dian.jpg" alt="Dr. Dian">
+        <div>
+          <h5>dr. Dian Fahraeni</h5>
+          <p>Consultant - Orthopedics</p>
+          <p class="doctor-status">Paling Dicari - Slot dokter ini segera habis.</p>
+        </div>
+      </div>
+      <div class="hospital-info">
+        <p><strong>Rumah Sakit:</strong> Rumah Sakit Umum Firdaus, Cilincing, Jakarta</p>
+        <p><strong>Jarak:</strong> 0.62 km dari Anda</p>
+      </div>
+      <div class="schedule-info">
+        <p>Jadwal: Besok, 19.00</p>
+        <button class="btn-appointment">Buat Janji</button>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="info-text">Biaya Konsultasi: Rp150.000</span>
+        <span class="info-text">Ulasan Dokter: 98% (4 ulasan)</span>
+      </div>
+    </div>
+
+    <div class="doctor-card">
+      <div class="doctor-info">
+        <img src="https://sehatin.rizcasaur.us/assets/images/profil-helen.jpg" alt="Apt. Helen">
+        <div>
+          <h5>apt. Helen Matasik</h5>
+          <p>Consultant - Pharmacist</p>
+          <p class="doctor-status">Paling Dicari - Slot dokter ini segera habis.</p>
+        </div>
+      </div>
+      <div class="hospital-info">
+        <p><strong>Rumah Sakit:</strong> Rumah Sakit Umum Firdaus, Cilincing, Jakarta</p>
+        <p><strong>Jarak:</strong> 0.62 km dari Anda</p>
+      </div>
+      <div class="schedule-info">
+        <p>Jadwal: Besok, 20.00</p>
+        <button class="btn-appointment">Buat Janji</button>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="info-text">Biaya Konsultasi: Rp180.000</span>
+        <span class="info-text">Ulasan Dokter: 100% (2 ulasan)</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <hr>
+    <br><br>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="index.html"><i class="bi bi-house-door-fill"></i><span>BERANDA</span></a>
+    <a href="#"><i class="bi bi-person-lines-fill"></i><span>DOKTER</span></a>
+    <a href="#"><i class="bi bi-calendar-event"></i><span>BUAT JANJI</span></a>
+    <a href="profile.html"><i class="bi bi-person-fill"></i><span>AKUN</span></a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
