@@ -112,10 +112,9 @@
                 <hr class="hr" />
                 <div class="mt-2">
                     <ul class="list-unstyled">
-                      <li>Dumin 500 mg 10 Kaplet <span class="rx-badge">OBAT RESEP</span></li>
-                      <li>Vometa FT 10 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
-                      <li>Oralit Sachet Phapros <span class="rx-badge">OBAT RESEP</span></li>
-                      <li>Ranitidine 150 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
+                      <li><strong>Dumin 500 mg </strong> <span class="rx-badge">OBAT RESEP</span></li>
+                      <li><strong>Vometa FT 10 mg </strong> <span class="rx-badge">OBAT RESEP</span></li>
+                      <li><strong>Oralit Sachet Phapros</strong> <span class="rx-badge">OBAT RESEP</span></li>
                     </ul>
                 </div>
                 <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#resepModal">Lihat Detail</button>
@@ -129,23 +128,22 @@
         <div class="event-icon bg-warning"></div>
         <div class="event-content">
             <small class="text-muted">Februari 2025</small>
-            <h4 class="mt-4">Telemedical - Selasa, 25/02/2025</h4>
+            <h4 class="mt-4">Telemedical - Senin, 17/02/2025</h4>
             <div class="card-med doctor-card">
             <img src="https://sehatin.rizcasaur.us/assets/images/profil-helen.jpg" alt="apt. Helen Matasik">
             <div>
                 <strong>apt. Helen Matasik</strong>
-                <p class="mb-1">Diagnosis:<br>Dispepsia, vertigo, dan GERD</p>
+                <p class="mb-1">Diagnosis:<br>Vertigo dan GERD</p>
                 <span class="badge bg-light text-primary"><i class="bi bi-prescription"></i> DIBERIKAN RESEP OBAT</span>
                 <hr class="hr" />
                 <div class="mt-2">
-                <ul class="list-unstyled">
-                    <li>Becom Zet 10 Kaplet <span class="rx-badge">OBAT RESEP</span></li>
-                    <li>Degirol 0.25 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
-                    <li>Alloris 10 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
-                    <li>Panadol 500 mg 10 Kaplet <span class="rx-badge">OBAT RESEP</span></li>
-                </ul>
+                  <ul class="list-unstyled">
+                    <li><strong>Betahistine 16 mg</strong> <span class="rx-badge">OBAT RESEP</span></li>
+                    <li><strong>Meclizine 25 mg</strong> <span class="rx-badge">OBAT RESEP</span></li>
+                    <li><strong>Omeprazole 20 mg</strong> <span class="rx-badge">OBAT RESEP</span></li>
+                  </ul>
                 </div>
-                <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#resepModal">Lihat Detail</button>
+                <button class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#resepModal2">Lihat Detail</button>
             </div>
             </div>
         </div>
@@ -153,37 +151,108 @@
 
   </div>
 
-  <!-- Modal -->
+ <!-- Modal -->
   <div class="modal fade" id="resepModal" tabindex="-1" aria-labelledby="resepModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="resepModalLabel">Resep Obat</h5>
+          <h5 class="modal-title" id="resepModalLabel">Rincian Resep Obat</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- Doctor Info -->
+          <div class="doctor-card">
+            <div>
+                <p >
+                    <strong>Dokter:</strong> dr. Jeshica Alga Borean<br>
+                    <strong>No. SIP:</strong> 446-DGT-1687760673-15.71.08.18.1
+                </p>
+                <p class="mb-1">Diagnosis:<br>Demam tifoid dan ISPA ringan</p>
+            </div>
+
+          </div>
+          <hr>
+          
+          <!-- Prescription Details -->
+          <h5>Resep Obat: </h5>
           <ul class="list-unstyled">
-            <li>Dumin 500 mg 10 Kaplet <span class="rx-badge">OBAT RESEP</span></li>
-            <li>Vometa FT 10 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
-            <li>Oralit Sachet Phapros <span class="rx-badge">OBAT RESEP</span></li>
-            <li>Ranitidine 150 mg 10 Tablet <span class="rx-badge">OBAT RESEP</span></li>
+            <li><strong>Dumin 500 mg </strong><br>1x sehari sesudah makan</li>
+            <li><strong>Vometa FT 10 mg </strong><br> 1x sehari sesudah makan</li>
+            <li><strong>Oralit Sachet Phapros</strong><br> 1x sehari sesudah makan</li>
           </ul>
+          <br>
+          <hr>
+          <p>
+            <strong>Nama Pasien: </strong>Marwah Intan Tandipayuk<br>
+            <strong>Jenis Kelamin: </strong>Perempuan<br>
+            <strong>Usia: </strong>20 Tahun<br>
+            <strong>Berlaku hingga: </strong>25/04/2025<br>
+          </p>
+          <span class="badge bg-light text-primary"><i class="bi bi-prescription"></i> RESEP SUDAH DITEBUS</span><br>
+
+          
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
           <button type="button" class="btn btn-primary" onclick="printPrescription()">Cetak Resep</button>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    function filterEvents(month) {
-      document.querySelectorAll('.event').forEach(event => {
-        event.style.display = month === '' || event.dataset.month === month ? 'block' : 'none';
-      });
-    }
+  <!-- Modal -->
+  <div class="modal fade" id="resepModal2" tabindex="-1" aria-labelledby="resepModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="resepModalLabel">Rincian Resep Obat</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Doctor Info -->
+          <div class="doctor-card">
+            <div>
+                <p >
+                    <strong>Dokter:</strong> apt. Helen Matasik<br>
+                    <strong>No. SIP:</strong> 446-DAT-1687766754-15.71.08.18.2
+                </p>
+                <p class="mb-1">Diagnosis:<br> Vertigo dan GERD</p>
+            </div>
 
+          </div>
+          <hr>
+          
+          <!-- Prescription Details -->
+          <h5>Resep Obat: </h5>
+          <ul class="list-unstyled">
+            <li><strong>Betahistine 16 mg</strong> <br>1x sehari sesudah makan</li>
+            <li><strong>Meclizine 25 mg</strong> <br>1x sehari sesudah makan</li>
+            <li><strong>Omeprazole 20 mg</strong> <br>1x sehari sesudah makan</li>
+          </ul>
+          <br>
+          <hr>
+          <p>
+            <strong>Nama Pasien: </strong>Marwah Intan Tandipayuk<br>
+            <strong>Jenis Kelamin: </strong>Perempuan<br>
+            <strong>Usia: </strong>20 Tahun<br>
+            <strong>Berlaku hingga: </strong>17/03/2025<br>
+          </p>
+          <span class="badge bg-light text-primary"><i class="bi bi-prescription"></i> RESEP SUDAH DITEBUS</span><br>
+
+          
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <button type="button" class="btn btn-primary" onclick="printPrescription()">Cetak Resep</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Print Function -->
+  <script>
     function printPrescription() {
       const modalBody = document.querySelector('#resepModal .modal-body');
       const printWindow = window.open('', '', 'width=600,height=400');
