@@ -5,6 +5,8 @@ const urlsToCache = [
   "https://sehatin.rizcasaur.us/profile.html",
   "https://sehatin.rizcasaur.us/monitoring.html",
   "https://sehatin.rizcasaur.us/fallback.html",
+  "https://sehatin.rizcasaur.us/telemed.html",
+  "https://sehatin.rizcasaur.us/digital.html",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
