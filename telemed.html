@@ -67,14 +67,22 @@
       font-size: 0.9rem;
       color: red;
     }
+
+    .doctor-next-schedule {
+      font-size: 0.9rem;
+      color: green;
+    }
+
     .info-text {
       font-size: 0.8rem;
       color: #666;
     }
+
     .hospital-info {
       margin-top: 0.5rem;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
     }
+
     .section-title {
       font-size: 1.5rem;
       font-weight: 600;
@@ -165,22 +173,24 @@
         <div>
           <h5 class="mb-3">dr. Jeshica Alga Borean</h5>
           <h6 class="mb-2"><i class="fa-solid fa-stethoscope"></i>&nbsp; Dokter Umum</h6>
-          <h6 class="mb-2"><i class="fa-solid fa-hospital-user"></i>&nbsp; RSUD Kota Kendari</h6>
+          <h6 class="mb-2"><i class="fa-solid fa-hospital-user"></i>&nbsp; RSUD Kota Kendari, Kendari</h6>
           <h6 class="mb-2"><i class="fa-solid fa-location-arrow"></i>&nbsp;&nbsp; 0.62 km dari Anda</h6>
         </div>
       </div>
       <div class="hospital-info">
-        <p class="doctor-status">Paling Dicari - Slot dokter ini segera habis.</p>
+        <p class="doctor-status mb-0"><strong><i class="bi bi-chevron-double-up"></i> Paling Dicari - Slot dokter ini segera habis.</strong></p>
+        <p class="doctor-next-schedule mb-0"><i class="bi bi-calendar-minus-fill"></i><strong> Jadwal Berikutnya : Besok, 17.00 Sore</strong></p>
       </div>
+
       <hr>
       <div class=" row justify-content-between align-items-center">
         <div class="col-4" style=" padding-right: 0px;">
             <span class="info-text">Biaya Konsultasi:</span>
-            <h6>Rp180.000</h6>
+            <h6 style="color:#6754e2;font-weight: bold;">Rp100.000</h6>
         </div>
         <div class="col-5 justify-content-between align-items-center" style=" padding-right: 0px;padding-left: 0px" >
             <span class="info-text">Ulasan Dokter:</span>
-            <h6>100% (2 ulasan)</h6>
+            <h6 style="color:#6754e2;font-weight: bold;">100% (76 ulasan)</h6>
         </div>
         <div class="col-3 d-grid gap-2 d-md-flex justify-content-md-end" style=" padding-right: 0px;padding-left: 0px;">
             <button class="btn-appointment">Buat Janji</button>
@@ -189,76 +199,101 @@
 
     </div>
 
-
-
+    <!-- Doctor Cards -->
     <div class="doctor-card">
-      <div class="doctor-info">
-        <img src="https://sehatin.rizcasaur.us/assets/images/profil-alfia.jpg" alt="Dr. Alfia">
-        <div>
-          <h5>dr. Alfia Rauf</h5>
-          <p>Consultant - Cardiology</p>
-          <p class="doctor-status">Paling Dicari - Slot dokter ini segera habis.</p>
+        <div class="doctor-info">
+            <img src="https://sehatin.rizcasaur.us/assets/images/profil-alfia.jpg" alt="Dr. alfia">
+            <div>
+            <h5 class="mb-3">dr. Alfia Rauf</h5>
+            <h6 class="mb-2"><i class="fa-solid fa-stethoscope"></i>&nbsp; Dokter Jantung</h6>
+            <h6 class="mb-2"><i class="fa-solid fa-hospital-user"></i>&nbsp; RS Santa Anna, Kendari</h6>
+            <h6 class="mb-2"><i class="fa-solid fa-location-arrow"></i>&nbsp;&nbsp; 2.92 km dari Anda</h6>
+            </div>
         </div>
-      </div>
-      <div class="hospital-info">
-        <p><strong>Rumah Sakit:</strong> Rumah Sakit Umum Firdaus, Cilincing, Jakarta</p>
-        <p><strong>Jarak:</strong> 0.62 km dari Anda</p>
-      </div>
-      <div class="schedule-info">
-        <p>Jadwal: Besok, 18.00</p>
-        <button class="btn-appointment">Buat Janji</button>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <span class="info-text">Biaya Konsultasi: Rp200.000</span>
-        <span class="info-text">Ulasan Dokter: 95% (3 ulasan)</span>
-      </div>
+        <div class="hospital-info">
+            <p class="doctor-next-schedule mb-0"><i class="bi bi-calendar-minus-fill"></i><strong> Tersedia Hari Ini</strong></p>
+        </div>
+    
+        <hr>
+        <div class=" row justify-content-between align-items-center">
+            <div class="col-4" style=" padding-right: 0px;">
+                <span class="info-text">Biaya Konsultasi:</span>
+                <h6 style="color:#6754e2;font-weight: bold;">Rp160.000</h6>
+            </div>
+            <div class="col-5 justify-content-between align-items-center" style=" padding-right: 0px;padding-left: 0px" >
+                <span class="info-text">Ulasan Dokter:</span>
+                <h6 style="color:#6754e2;font-weight: bold;">100% (55 ulasan)</h6>
+            </div>
+            <div class="col-3 d-grid gap-2 d-md-flex justify-content-md-end" style=" padding-right: 0px;padding-left: 0px;">
+                <button class="btn-appointment">Buat Janji</button>
+            </div>
+        </div>
     </div>
 
+    <!-- Doctor Cards -->
     <div class="doctor-card">
-      <div class="doctor-info">
-        <img src="https://sehatin.rizcasaur.us/assets/images/profil-dian.jpg" alt="Dr. Dian">
-        <div>
-          <h5>dr. Dian Fahraeni</h5>
-          <p>Consultant - Orthopedics</p>
-          <p class="doctor-status">Paling Dicari - Slot dokter ini segera habis.</p>
+        <div class="doctor-info">
+            <img src="https://sehatin.rizcasaur.us/assets/images/profil-dian.jpg" alt="Dr. dian">
+            <div>
+            <h5 class="mb-3">dr. Dian Fahraeni</h5>
+            <h6 class="mb-2"><i class="fa-solid fa-stethoscope"></i>&nbsp; Dokter Ortopedi</h6>
+            <h6 class="mb-2"><i class="fa-solid fa-hospital-user"></i>&nbsp; RS Santa Anna, Kendari</h6>
+            <h6 class="mb-2"><i class="fa-solid fa-location-arrow"></i>&nbsp;&nbsp; 2.92 km dari Anda</h6>
+            </div>
         </div>
-      </div>
-      <div class="hospital-info">
-        <p><strong>Rumah Sakit:</strong> Rumah Sakit Umum Firdaus, Cilincing, Jakarta</p>
-        <p><strong>Jarak:</strong> 0.62 km dari Anda</p>
-      </div>
-      <div class="schedule-info">
-        <p>Jadwal: Besok, 19.00</p>
-        <button class="btn-appointment">Buat Janji</button>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <span class="info-text">Biaya Konsultasi: Rp150.000</span>
-        <span class="info-text">Ulasan Dokter: 98% (4 ulasan)</span>
-      </div>
+        <div class="hospital-info">
+            <p class="doctor-next-schedule mb-0"><i class="bi bi-calendar-minus-fill"></i><strong> Jadwal Berikutnya : 28 Apr 2025, 10.00 Pagi</strong></p>
+        </div>
+    
+        <hr>
+        <div class=" row justify-content-between align-items-center">
+            <div class="col-4" style=" padding-right: 0px;">
+                <span class="info-text">Biaya Konsultasi:</span>
+                <h6 style="color:#6754e2;font-weight: bold;">Rp160.000</h6>
+            </div>
+            <div class="col-5 justify-content-between align-items-center" style=" padding-right: 0px;padding-left: 0px" >
+                <span class="info-text">Ulasan Dokter:</span>
+                <h6 style="color:#6754e2;font-weight: bold;">100% (42 ulasan)</h6>
+            </div>
+            <div class="col-3 d-grid gap-2 d-md-flex justify-content-md-end" style=" padding-right: 0px;padding-left: 0px;">
+                <button class="btn-appointment">Buat Janji</button>
+            </div>
+        </div>
     </div>
 
+    <!-- Doctor Cards -->
     <div class="doctor-card">
-      <div class="doctor-info">
-        <img src="https://sehatin.rizcasaur.us/assets/images/profil-helen.jpg" alt="Apt. Helen">
-        <div>
-          <h5>apt. Helen Matasik</h5>
-          <p>Consultant - Pharmacist</p>
-          <p class="doctor-status">Paling Dicari - Slot dokter ini segera habis.</p>
+        <div class="doctor-info">
+            <img src="https://sehatin.rizcasaur.us/assets/images/profil-helen.jpg" alt="Dr. helen">
+            <div>
+            <h5 class="mb-3">Helen Matasik, apt</h5>
+            <h6 class="mb-2"><i class="fa-solid fa-stethoscope"></i>&nbsp; Apoteker</h6>
+            <h6 class="mb-2"><i class="fa-solid fa-hospital-user"></i>&nbsp; RSUD Kota Kendari, Kendari</h6>
+            <h6 class="mb-2"><i class="fa-solid fa-location-arrow"></i>&nbsp;&nbsp; 0.62 km dari Anda</h6>
+            </div>
         </div>
-      </div>
-      <div class="hospital-info">
-        <p><strong>Rumah Sakit:</strong> Rumah Sakit Umum Firdaus, Cilincing, Jakarta</p>
-        <p><strong>Jarak:</strong> 0.62 km dari Anda</p>
-      </div>
-      <div class="schedule-info">
-        <p>Jadwal: Besok, 20.00</p>
-        <button class="btn-appointment">Buat Janji</button>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <span class="info-text">Biaya Konsultasi: Rp180.000</span>
-        <span class="info-text">Ulasan Dokter: 100% (2 ulasan)</span>
-      </div>
+        <div class="hospital-info">
+            <p class="doctor-next-schedule mb-0"><i class="bi bi-calendar-minus-fill"></i><strong> Tersedia Hari Ini</strong></p>
+        </div>
+    
+        <hr>
+        <div class=" row justify-content-between align-items-center">
+            <div class="col-4" style=" padding-right: 0px;">
+                <span class="info-text">Biaya Konsultasi:</span>
+                <h6 style="color:#6754e2;font-weight: bold;">Rp160.000</h6>
+            </div>
+            <div class="col-5 justify-content-between align-items-center" style=" padding-right: 0px;padding-left: 0px" >
+                <span class="info-text">Ulasan Dokter:</span>
+                <h6 style="color:#6754e2;font-weight: bold;">100% (37 ulasan)</h6>
+            </div>
+            <div class="col-3 d-grid gap-2 d-md-flex justify-content-md-end" style=" padding-right: 0px;padding-left: 0px;">
+                <button class="btn-appointment">Buat Janji</button>
+            </div>
+        </div>
     </div>
+
+
+
   </div>
 
   <div>
