@@ -19,6 +19,7 @@ jobs:
           sudo cp -v ./index.html /var/www/medapp/
           sudo cp -v ./profile.html /var/www/medapp/
           sudo cp -v ./manifest.json /var/www/medapp/
+          sudo cp -v ./users.json /var/www/medapp/
           sudo cp -v ./service-worker.js /var/www/medapp/
           sudo cp -v ./monitoring.html /var/www/medapp/
           sudo cp -v ./fallback.html /var/www/medapp/
