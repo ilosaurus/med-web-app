@@ -2,6 +2,8 @@ const CACHE_NAME = "SEHATIN-CACHE";
 const urlsToCache = [
   "https://sehatin.rizcasaur.us/",
   "https://sehatin.rizcasaur.us/index.html",
+  "https://sehatin.rizcasaur.us/login.html",
+  "https://sehatin.rizcasaur.us/home.html",
   "https://sehatin.rizcasaur.us/profile.html",
   "https://sehatin.rizcasaur.us/monitoring.html",
   "https://sehatin.rizcasaur.us/fallback.html",
@@ -17,6 +19,8 @@ const urlsToCache = [
   "https://sehatin.rizcasaur.us/assets/images/category-hospital.svg",
   "https://sehatin.rizcasaur.us/assets/images/category-emergency.svg",
   "https://sehatin.rizcasaur.us/assets/images/category-laboratory.svg",
+  "https://sehatin.rizcasaur.us/assets/images/sehatin-logo.svg",
+  "https://sehatin.rizcasaur.us/assets/images/sehatin-logo.png",
   "https://sehatin.rizcasaur.us/assets/images/profil-intan.jpg",
   "https://sehatin.rizcasaur.us/assets/images/profil-helen.jpg",
   "https://sehatin.rizcasaur.us/assets/images/profil-jeshica.jpg",
