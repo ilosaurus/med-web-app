@@ -36,6 +36,7 @@ const urlsToCache = [
   "https://sehatin.rizcasaur.us/assets/images/favicon.ico",
   "https://sehatin.rizcasaur.us/assets/images/favicon.svg",
   "https://sehatin.rizcasaur.us/assets/images/favicon-96x96.png",
+  "https://sehatin.rizcasaur.us/users.json",
   "https://sehatin.rizcasaur.us/manifest.json"
 ];
 
