@@ -115,13 +115,14 @@
     const buttons = document.querySelectorAll('.btn');
 
     buttons.forEach(button => {
-      button.addEventListener('touchstart', () => {
+    // Use passive: true for better performance
+    button.addEventListener('touchstart', () => {
         button.classList.add('active');
-      });
+    }, { passive: true });
 
-      button.addEventListener('touchend', () => {
+    button.addEventListener('touchend', () => {
         button.classList.remove('active');
-      });
+    }, { passive: true });
     });
   </script>
 </body>
