@@ -16,6 +16,7 @@ jobs:
       - name: Copy static files to /var/www/medapp
         run: |
           # Copy the root HTML file (index.html)
+          sudo rm -f /var/www/medapp/*.html
           sudo cp -v ./index.html /var/www/medapp/
           sudo cp -v ./profile.html /var/www/medapp/
           sudo cp -v ./manifest.json /var/www/medapp/
