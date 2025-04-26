@@ -24,6 +24,9 @@ jobs:
           sudo cp -v ./fallback.html /var/www/medapp/
           sudo cp -v ./digital.html /var/www/medapp/
           sudo cp -v ./telemed.html /var/www/medapp/
+          sudo cp -v ./docprofile.html /var/www/medapp/
+          sudo cp -v ./login.html /var/www/medapp/
+          sudo cp -v ./home.html /var/www/medapp/
 
           # Copy the entire public folder (for favicon.ico and other assets)
           sudo cp -rv ./assets /var/www/medapp/
